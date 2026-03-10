@@ -1,4 +1,7 @@
-# You Can’t Process Your Way Out of Bad Engineering
+---
+layout: post
+title: "You Can't Process Your Way Out of Bad Engineering"
+---
 
 Many engineering organizations have a very predictable response to failure.
 
