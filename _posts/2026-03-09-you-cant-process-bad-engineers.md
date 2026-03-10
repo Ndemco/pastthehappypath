@@ -93,24 +93,6 @@ It does not produce better engineering.
 
 ---
 
-## Why this doesn’t work
-
-These processes usually appear after a visible failure.
-
-A poorly designed system causes an incident. A feature is implemented without enough thought. Leadership concludes that engineers need more structure to guide their thinking.
-
-So the organization introduces mandatory planning artifacts.
-
-But documents do not create good design.
-
-Engineers create good design.
-
-Weak engineers will produce weak designs whether those designs live in a document or in code. Strong engineers will think carefully about architecture regardless of whether a template requires it.
-
-A six-page document does not magically produce engineering judgment.
-
----
-
 ## Engineers design systems and processes for a living
 
 There is also a deeper irony in organizations that rely heavily on top-down process to control engineering behavior.
