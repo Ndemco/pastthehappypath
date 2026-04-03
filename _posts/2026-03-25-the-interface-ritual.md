@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Interface Ritual"
+title: "The Interface Ritual: Start Concrete, Stay Decoupled"
 ---
 
 "Put your application boundaries behind interfaces" is one of the most commonly repeated pieces of advice in software engineering. It's also ritual masquerading as architecture.
