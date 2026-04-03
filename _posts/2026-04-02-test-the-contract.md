@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Test the Contract, Not the Code"
+title: "Test the Contract, Not the Code: The Case for Integration-First Testing"
 ---
 A unit test has never caught a missing header.
 
