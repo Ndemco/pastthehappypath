@@ -4,16 +4,18 @@ title: About
 permalink: /about/
 ---
 
-Hi, I’m Nick. I build backend systems.
+Hi, I'm Nick DeMarco. I build backend systems.
 
 My love language is Kotlin. My love interest is Go.
 
-I was born on December 23, 1991. I discovered my passion for software engineering a little later than most—around age 28—thanks to a handful of people whose enthusiasm for the craft was contagious.
+I discovered my passion for software engineering around age 28, thanks to a handful of people whose enthusiasm for the craft was contagious.
 
-I have two kids and a wife who’s far too good for me.
+I have two kids and a wife who is, frankly, far too good for me.
 
-I enjoy a good cigar on a cool, still night.
+I enjoy a good cigar.
 
-From software to plumbing, I like building systems—understanding how things work, why they fail, and how to make them better.
+From software to plumbing, I like understanding how things work, why they fail, and how to make them better.
 
-I have strong (and changing) opinions about software engineering. This is where I work through them in public.
+I have strong opinions about software engineering, and this is where I work through them in public."
+
+ndemco@gmail.com
