@@ -6,13 +6,13 @@ A unit test has never caught a missing header.
 
 That's not a knock on unit tests. They're fast, focused, and great at what they do. But "great at what they do" and "right for the job" aren't the same thing.
 
-The testing pyramid tells us to write unit tests by the hundreds, integration tests sparingly, and treat end-to-end tests like a rare luxury.
-Like [the food pyramid](https://www.uabmedicine.org/news/myplate-healthy-eating-chart-replaced-the-food-pyramid) of 1992,
+The testing pyramid tells us to write unit tests by the hundreds, and integration tests sparingly.
+And like [the food pyramid](https://www.uabmedicine.org/news/myplate-healthy-eating-chart-replaced-the-food-pyramid) of 1992,
 it became gospel — repeated in bootcamps, blog posts, and code reviews — until most of us stopped asking whether it actually fit our context.
 
 For backend APIs, I don't think it does. Follow it religiously and you'll end up with a test suite that's fast, green, and completely blind to the bugs that actually take down production.
 
-My argument is simple: integration tests should be your foundation, and unit tests should fill in the cracks. Let me show you why.
+My argument is simple: integration tests should be your foundation, and unit tests should fill in the gaps. Let me show you why.
 
 ___
 
@@ -20,10 +20,9 @@ ___
 
 There's no clean study that puts an exact number on this (I looked) but every developer currently on an on-call rotation knows this to be true:
 production incidents routinely start at a service boundary and cascade outward.
-Lack of transactionality, expired tokens, breaking changes to your API. None of these live in your business logic.
-They live at the seams.
+Think transactionality gaps, expired tokens, and breaking changes to your API. None of these live in your business logic. They live at the seams.
 
-This is where the main issue with the testing pyramid is apparent. Units tests are really, really bad at testing your application boundaries.
+This is where the main issue with the testing pyramid is apparent. Units tests are really, **really** bad at testing your application boundaries.
 
 A well-designed application boundary is thin and just performs the IO with minimal logic. Consider this simple repository class:
 ```java
@@ -64,7 +63,7 @@ void findById_returnsUser() {
     assertThat(result).contains(expected);
 }
 ```
-This test is essentially asserting: "given that the database returns a user, does my method return that user?" — which is a tautology.
+This test is essentially asserting: "given that the database returns a user, does my method return that user?", which is a tautology.
 You mocked the only interesting thing that could happen, then verified that your code returned the mock. Congratualations.
 You have green lines, and you have learned nothing.
 
@@ -134,9 +133,10 @@ Integration tests just get out of the way and let you build.
 
 ## But What About Speed?
 
-This is the most common objection to integration-first testing, so let's address it head on.
+This is the most common objection to integration-first testing, and the most valid, so let's address it head on.
 
-Slow integration tests are a design decision, not an inherent property of integration tests. 
+Integration tests will always be slower than unit tests. But each one covers more ground, so you need fewer of them.
+*Painfully* slow integration tests, though, are a design decision. 
 The reason most integration test suites are slow is because they're stateful. They rely on a fixed set of database fixtures, 
 they have to run sequentially to avoid stomping on each other's data, and they accumulate years of setup and teardown baggage that nobody wants to touch.
 But it doesn't have to be that way.
@@ -149,7 +149,7 @@ That changes the math considerably. Thousands of integration tests, running in p
 
 And while we're here: if your integration tests are slow because your endpoints are genuinely slow, that's not a testing problem.
 That's a codebase problem that your integration tests just had the courtesy to surface.
-A test suite that exposes real performance issues isn't a liability. It's doing its job.
+A test suite that exposes real performance issues is doing its job.
 
 ---
 
@@ -159,10 +159,10 @@ None of this is to say that unit tests are useless.
 There are places in a backend codebase where they shine: complex business logic, pure transformation functions, edge cases in validation rules.
 If you have a method that takes inputs and produces outputs with no IO involved, a unit test is probably the right tool for that job.
 
-The argument isn't *don't write unit tests.* The argument is *don't build your testing strategy around them.*.
+The argument isn't *don't write unit tests.* The argument is *don't build your testing strategy around them.*
 
 The testing pyramid tells you to make unit tests your foundation, to write them by the hundreds and treat integration tests as a luxury.
-But for backend APIs specifically (and maybe more), that gets the priority backwards. Your API's contract is what matters.
+But for backend APIs (and maybe more), that priority is backwards. Your API's contract is what matters.
 Your API's behavior at its boundaries is where things break.
 Your API's ability to survive a refactor without dragging your test suite along for the ride is what makes a codebase sustainable.
 
